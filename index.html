@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roomify — AI Interior Transform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Roomify</h1>
+        <p>Upload a room photo, pick style, lock architecture, and generate one hero redesign.</p>
+      </header>
+
+      <section class="panel controls">
+        <label class="file-input">
+          <span>Room Photo</span>
+          <input id="roomUpload" type="file" accept="image/*" />
+        </label>
+
+        <div class="grid">
+          <label>
+            Room Type
+            <select id="roomType">
+              <option value="auto">Auto-detect</option>
+              <option>Bedroom</option>
+              <option selected>Living Room</option>
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Office</option>
+              <option>Basement</option>
+              <option>Gaming Room</option>
+              <option>Home Gym</option>
+              <option>Studio</option>
+            </select>
+          </label>
+
+          <label>
+            Style
+            <select id="style">
+              <option selected>Luxury Modern</option>
+              <option>Cozy Minimalist</option>
+              <option>Industrial</option>
+              <option>Ultra Modern</option>
+              <option>Elegant Classic</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Style Intensity
+          <input id="intensity" type="range" min="1" max="100" value="78" />
+        </label>
+
+        <fieldset>
+          <legend>Enhancements</legend>
+          <div class="chips">
+            <label><input type="checkbox" value="Multi-functional furniture" checked />Multi-functional furniture</label>
+            <label><input type="checkbox" value="Smart home tech" checked />Smart home tech</label>
+            <label><input type="checkbox" value="Space optimization" checked />Space optimization</label>
+            <label><input type="checkbox" value="Lighting upgrades" checked />Lighting upgrades</label>
+            <label><input type="checkbox" value="Textures & surfaces" checked />Textures & surfaces</label>
+            <label><input type="checkbox" value="Lifestyle realism touches" checked />Lifestyle realism touches</label>
+          </div>
+        </fieldset>
+
+        <label class="inline">
+          <input id="archLock" type="checkbox" checked />
+          Lock architectural elements (required)
+        </label>
+
+        <button id="generateBtn">Generate 4K Hero Transform</button>
+        <p id="status"></p>
+      </section>
+
+      <section class="panel viewer">
+        <div class="slider-wrap hidden" id="sliderWrap">
+          <img id="beforeImg" alt="Before room" />
+          <div id="afterMask" class="after-mask">
+            <img id="afterImg" alt="After design" />
+          </div>
+          <input id="slider" type="range" min="0" max="100" value="50" />
+          <div class="label before">Before</div>
+          <div class="label after">After</div>
+        </div>
+
+        <details>
+          <summary>Generation payload</summary>
+          <pre id="payloadPreview"></pre>
+        </details>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
