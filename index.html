@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roomify — AI Interior Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Roomify</div>
+      <nav>
+        <a href="#studio">Studio</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <button class="ghost">Get Started</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">AI Interior Design Platform</p>
+          <h1>Turn Any Room Photo Into A Premium Designer Space</h1>
+          <p class="sub">Upload once, lock architecture, choose a style, and get a cinematic redesign ready for TikTok, Instagram, Shorts, and Pinterest.</p>
+          <div class="hero-cta">
+            <a href="#studio" class="btn btn-primary">Design My Room</a>
+            <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Why Roomify Wins</h3>
+          <ul>
+            <li>Architecture-safe transforms</li>
+            <li>Luxury-quality photoreal output</li>
+            <li>1-click before/after reels</li>
+            <li>Style + shopping intelligence</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="studio" id="studio">
+        <div class="panel controls">
+          <h2>Design Studio</h2>
+          <p class="hint">Built for high-impact transformations with clean, eco-friendly aesthetics.</p>
+
+          <label class="file-input">
+            <span>Room Photo</span>
+            <input id="roomUpload" type="file" accept="image/*" />
+          </label>
+
+          <div class="grid">
+            <label>
+              Room Type
+              <select id="roomType">
+                <option value="auto">Auto-detect</option>
+                <option>Bedroom</option>
+                <option selected>Living Room</option>
+                <option>Kitchen</option>
+                <option>Bathroom</option>
+                <option>Office</option>
+                <option>Basement</option>
+                <option>Gaming Room</option>
+                <option>Home Gym</option>
+                <option>Studio</option>
+              </select>
+            </label>
+
+            <label>
+              Style
+              <select id="style">
+                <option selected>Luxury Modern</option>
+                <option>Cozy Minimalist</option>
+                <option>Industrial</option>
+                <option>Ultra Modern</option>
+                <option>Elegant Classic</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Style Intensity
+            <input id="intensity" type="range" min="1" max="100" value="80" />
+          </label>
+
+          <fieldset>
+            <legend>Enhancements</legend>
+            <div class="chips">
+              <label><input type="checkbox" value="Multi-functional furniture" checked />Multi-functional furniture</label>
+              <label><input type="checkbox" value="Smart home tech" checked />Smart home tech</label>
+              <label><input type="checkbox" value="Space optimization" checked />Space optimization</label>
+              <label><input type="checkbox" value="Lighting upgrades" checked />Lighting upgrades</label>
+              <label><input type="checkbox" value="Textures & surfaces" checked />Textures & surfaces</label>
+              <label><input type="checkbox" value="Lifestyle realism touches" checked />Lifestyle realism touches</label>
+            </div>
+          </fieldset>
+
+          <label class="inline">
+            <input id="archLock" type="checkbox" checked />
+            Lock architectural elements (required)
+          </label>
+
+          <button id="generateBtn" class="btn btn-primary">Generate 4K Hero Transform</button>
+          <p id="status" class="hint"></p>
+        </div>
+
+        <div class="panel viewer">
+          <h2>Before / After</h2>
+          <div class="slider-wrap hidden" id="sliderWrap">
+            <img id="beforeImg" alt="Before room" />
+            <div id="afterMask" class="after-mask">
+              <img id="afterImg" alt="After design" />
+            </div>
+            <input id="slider" type="range" min="0" max="100" value="50" />
+            <div class="label before">Before</div>
+            <div class="label after">After</div>
+          </div>
+
+          <details>
+            <summary>Generation payload</summary>
+            <pre id="payloadPreview"></pre>
+          </details>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section">
+        <h2>My Gallery</h2>
+        <p class="hint">Recent transformations and inspiration in one clean dashboard.</p>
+        <div id="galleryGrid" class="gallery-grid"></div>
+      </section>
+
+      <section id="pricing" class="pricing-section">
+        <h2>Simple Pricing</h2>
+        <p class="hint">Light, transparent, creator-friendly plans.</p>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Starter</h3>
+            <p class="price">$0<span>/mo</span></p>
+            <ul>
+              <li>3 renders / month</li>
+              <li>Watermarked exports</li>
+              <li>Community gallery</li>
+            </ul>
+            <button class="btn btn-secondary">Start Free</button>
+          </article>
+          <article class="price-card featured">
+            <p class="pill">Most Popular</p>
+            <h3>Pro</h3>
+            <p class="price">$29<span>/mo</span></p>
+            <ul>
+              <li>120 renders / month</li>
+              <li>4K no watermark</li>
+              <li>Before/after reel export</li>
+              <li>Shop-the-look links</li>
+            </ul>
+            <button class="btn btn-primary">Go Pro</button>
+          </article>
+          <article class="price-card">
+            <h3>Studio</h3>
+            <p class="price">$99<span>/mo</span></p>
+            <ul>
+              <li>Unlimited renders</li>
+              <li>Team seats + brand kit</li>
+              <li>API access</li>
+            </ul>
+            <button class="btn btn-secondary">Contact Sales</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
